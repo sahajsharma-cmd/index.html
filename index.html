@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Important Question</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align:center;
+    background:#f2f6ff;
+    margin-top:100px;
+}
+
+h1{
+    font-size:40px;
+}
+
+button{
+    font-size:20px;
+    padding:12px 30px;
+    margin:20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+#yes{
+    background:#28a745;
+    color:white;
+}
+
+#no{
+    background:#ff4d4d;
+    color:white;
+    position:absolute;
+}
+
+#result{
+    display:none;
+    margin-top:120px;
+    font-size:35px;
+}
+
+emoji{
+    font-size:80px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Answer honestly 😏</h1>
+<h2>Are you awesome?</h2>
+
+<button id="yes" onclick="showResult()">Yes</button>
+<button id="no">No</button>
+
+<div id="result">
+    <div style="font-size:80px">😎🎉</div>
+    <h1>Congratulations!</h1>
+    <p>I knew it! 😂</p>
+</div>
+
+<script>
+
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseover", moveButton);
+noBtn.addEventListener("click", moveButton);
+
+function moveButton(){
+    const x = Math.random() * window.innerWidth * 0.8;
+    const y = Math.random() * window.innerHeight * 0.8;
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+
+function showResult(){
+    document.body.innerHTML = `
+        <div style="text-align:center;margin-top:120px;font-family:Arial">
+        <div style="font-size:100px">😂🎉</div>
+        <h1>Congratulations!</h1>
+        <p>I knew you'd click YES!</p>
+        </div>
+    `;
+}
+
+</script>
+
+</body>
+</html>
